@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .weather-card {
+    @apply relative overflow-hidden rounded-lg p-6 transition-all duration-300;
+  }
+}
