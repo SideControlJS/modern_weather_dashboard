@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { Cloud, Loader2 } from 'lucide-react';
 import { WeatherCard } from './components/WeatherCard';
@@ -49,7 +49,7 @@ function App() {
           timezone: currentWeatherRes.data.timezone,
         },
         daily: forecastRes.data.list
-          .filter((item: any, index: number) => index % 8 === 0)
+          .filter((_: any, index: number) => index % 8 === 0)
           .slice(0, 5)
           .map((day: any) => ({
             dt: day.dt,
@@ -139,7 +139,7 @@ function App() {
                   <TimeBasedInfo
                     sunrise={weather.current.sunrise}
                     sunset={weather.current.sunset}
-                    timezone={weather.current.timezone}
+                    timezone={weather.current.timezone ?? 0}
                   />
                 )}
 
@@ -153,7 +153,7 @@ function App() {
                 </motion.h2>
                 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-                  {weather.daily.map((day, index) => (
+                  {weather.daily.map((day) => (
                     <WeatherCard
                       key={day.dt}
                       temp={day.temp.max}
