@@ -12,7 +12,7 @@ import { WeatherProvider } from './context/WeatherContext';
 import type { WeatherData } from './types/weather';
 import { motion } from 'framer-motion';
 
-const API_KEY = import.meta.env.API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 if (!API_KEY) {
